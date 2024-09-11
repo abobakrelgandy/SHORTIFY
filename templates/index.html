@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shortify</title>
+    <link rel="stylesheet" href="static/styles/index.css" />
+    <link rel="icon" href="static/images/Background.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- header -->
+    <div class="header">
+      <a href="https://shortify-y-w.vercel.app/">
+        <img src="static/images/logo.png" class="imgh" alt="Logo" />
+      </a>
+    </div>
+
+    <!-- main section -->
+    <div class="container">
+      <div class="centered-container">
+        <div class="left-side">
+          <h1>Input your long URL and get a short code instantly!</h1>
+          <form id="shortenForm" action="{{ url_for('shorten_url') }}" method="POST">
+            <div class="shorten bar">
+              <input
+                type="text"
+                name="original_url"
+                placeholder="Enter URL .."
+                required
+              />
+              
+              <button type="button" id="btn">Shorten</button>
+            </div>
+          </form>
+        </div>
+        <div class="right-side">
+          <img src="static/images/Background.png" class="imgb" />
+        </div>
+      </div>
+    </div>
+    <!-- Error message container -->
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <!-- Modal Structure -->
+    <div id="shortenModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p> <span id="shortenedLink"></span></p>
+        <p id="copyMessage" style="display:none; color:green;">Copied to clipboard!</p>
+
+      </div>
+    </div>
+    <script src="static/js/main.js"></script>
+  </body>
+</html>
